@@ -1,7 +1,7 @@
 #pragma once
 
-#define CAM_WIDTH 480
-#define CROP_HEIGHT 360
+#define CAM_WIDTH 640
+#define CROP_HEIGHT 480
 
 #include <opencv2/opencv.hpp>
 #include "ofMain.h"
