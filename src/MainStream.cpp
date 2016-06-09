@@ -17,7 +17,7 @@ void MainStream::setup(){
     //---------------------------mjpg Connection-------------------------------------
     //192.168.145.238
 //    cap[0] = cv::VideoCapture("192.168.150.181:8080?action=stream");
-    cap[0] = cv::VideoCapture("http://192.168.150.181:8080/?action=stream");
+    cap[0] = cv::VideoCapture("http://192.168.152.22:8080/?action=stream");
     img[0].allocate(CAM_WIDTH, CROP_HEIGHT, OF_IMAGE_COLOR);
 
     //192.168.157.5
@@ -61,7 +61,7 @@ void MainStream::exit() {
 void MainStream::update(){
     ofSetWindowTitle("[FPS]: "+ofToString(ofGetFrameRate()));
 
-
+    //-------------取得した videocapture をchromakeyにセット--------------
     for(int i = 0; i<1;i++){
         if (cap[i].isOpened() ){
             cap[i] >> frame[i];
@@ -69,7 +69,7 @@ void MainStream::update(){
                 cout << "empty" << endl;
                 exit();
             }else{
-                img[i].setFromPixels(frame[i].ptr(), frame[i].cols, frame[i].rows, OF_IMAGE_COLOR,FALSE);
+                img[i].setFromPixels(frame[i].ptr(), frame[i].cols, frame[i].rows, OF_IMAGE_COLOR);//RaspPiからの入力はBGRじゃないのでfalseを引数に入れない
                 if(bUpdateBgColor)
                     chromakey->updateBgColor(img[i].getPixels());//Chromakeyに新しいPixelを入れる
                 chromakey->updateChromakeyMask(img[i].getTexture(), bg_image.getTexture());
@@ -77,6 +77,7 @@ void MainStream::update(){
             if(cv::waitKey(30) >= 0) exit();
         }
     }
+    //-------------取得した videocapture をchromakeyにセット--------------
 
 
     /*
