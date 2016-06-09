@@ -54,6 +54,10 @@ void MainStream::setup(){
     chromaGui.setup();
     chromaGui.add(chromakey[0]->generalParams);
     chromaGui.add(chromakey[0]->positionParams);
+    chromaGui.add(chromakey[1]->generalParams);
+    chromaGui.add(chromakey[1]->positionParams);
+    chromaGui.add(chromakey[2]->generalParams);
+    chromaGui.add(chromakey[2]->positionParams);
     chromaGui.setPosition(0, 0);
     //---------------------GUI---------------------
 
@@ -160,7 +164,7 @@ void MainStream::drawDebugMasks(int i) {
     chromakey[i]->drawFinalMask(camW, camH, previewW, previewH);
     ofDrawBitmapStringHighlight("Final mask", camW, camH + labelOffset, ofColor(0, 125), ofColor::yellowGreen);
 
-    img[0].draw(camW + previewW, camH, previewW, previewH);
+    img[i].draw(camW + previewW, camH, previewW, previewH);
     ofDrawBitmapStringHighlight("RGB image", camW + previewW, camH + labelOffset, ofColor(0, 125), ofColor::yellowGreen);
 }
 
