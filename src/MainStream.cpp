@@ -17,7 +17,7 @@ void MainStream::setup(){
     //---------------------------mjpg Connection-------------------------------------
     //192.168.145.238
 //    cap[0] = cv::VideoCapture("192.168.150.181:8080?action=stream");
-    cap[0] = cv::VideoCapture("http://192.168.152.22:8080/?action=stream");
+    cap[0] = cv::VideoCapture("http://192.168.150.181:8080/?action=stream");
     img[0].allocate(CAM_WIDTH, CROP_HEIGHT, OF_IMAGE_COLOR);
 
     //192.168.157.5
@@ -33,7 +33,6 @@ void MainStream::setup(){
     //-----------------------------------Chromakey Shader--------------------------------
     bShowGui = true;
     bUpdateBgColor = true;
-
     chromakey = new ofxChromaKeyShader(camW, camH);
 
     // maskee
@@ -70,7 +69,7 @@ void MainStream::update(){
                 exit();
             }else{
                 img[i].setFromPixels(frame[i].ptr(), frame[i].cols, frame[i].rows, OF_IMAGE_COLOR);//RaspPiからの入力はBGRじゃないのでfalseを引数に入れない
-                if(bUpdateBgColor)
+                if(bUpdateBgColor && img[i].isAllocated())
                     chromakey->updateBgColor(img[i].getPixels());//Chromakeyに新しいPixelを入れる
                 chromakey->updateChromakeyMask(img[i].getTexture(), bg_image.getTexture());
             }
@@ -97,9 +96,11 @@ void MainStream::draw(){
     ofSetColor(255);
     ofBackground(0);
 
+    //------------------------Chromakeyを描画-------------------------
     // draw Cam mask
-    chromakey->drawFinalImage(camW/2, 0, camW, camH);//
-    drawDebugMasks();//サブルーチン化
+    chromakey->drawFinalImage(camW/2, 0, camW, camH);//chromacyかけたやつを描画
+    drawDebugMasks();//Debug各種をサブルーチン化
+    //------------------------Chromakeyを描画-------------------------
 
     //----------------------------GUIの描画--------------------------
     if(bShowGui) {
@@ -133,6 +134,7 @@ void MainStream::drawDebugMasks() {
     ofDrawBitmapStringHighlight("Chroma mask", previewW, camH + labelOffset, ofColor(0, 125), ofColor::yellowGreen);
 
     drawCheckerboard(camW, camH, previewW, previewH, 5);
+    
     chromakey->drawFinalMask(camW, camH, previewW, previewH);
     ofDrawBitmapStringHighlight("Final mask", camW, camH + labelOffset, ofColor(0, 125), ofColor::yellowGreen);
 
@@ -141,6 +143,7 @@ void MainStream::drawDebugMasks() {
 }
 
 //--------------------------------------------------------------
+//チェス盤みたいなやつを描画
 void MainStream::drawCheckerboard(float x, float y, int width, int height, int size) {
     if (!checkerboardTex.isAllocated()) {
         checkerboardTex.allocate(width, height);
