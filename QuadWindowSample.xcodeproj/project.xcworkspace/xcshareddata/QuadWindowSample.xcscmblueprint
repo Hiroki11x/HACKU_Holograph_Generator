@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "77867922273CEA1625F332567A4AB3DB60F0760D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "611BE3E50886D611714AA25B7B86C978F1028A39" : 0,
+    "77867922273CEA1625F332567A4AB3DB60F0760D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D10A99BF-27E0-4193-AB44-84BA9237C322",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "611BE3E50886D611714AA25B7B86C978F1028A39" : "..\/addons",
+    "77867922273CEA1625F332567A4AB3DB60F0760D" : "openFrameworksSample\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "QuadWindowSample",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "QuadWindowSample\/QuadWindowSample.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Hiroki11x\/ofxCustomAddons.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "611BE3E50886D611714AA25B7B86C978F1028A39"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Hiroki11x\/openFrameworksSample.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "77867922273CEA1625F332567A4AB3DB60F0760D"
+    }
+  ]
+}
