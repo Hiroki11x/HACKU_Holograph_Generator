@@ -11,7 +11,7 @@
 //--------------------------------------------------------------
 void MainStream::setup(){
 
-    ofSetFrameRate(2);
+    ofSetFrameRate(0);
 
     camW = 960; camH = 740;
     ofSetWindowShape(camW*2, camH*1.5f);//WindowSizeは1980*1080
@@ -20,13 +20,13 @@ void MainStream::setup(){
     tuningIndex = 0;
 
     //---------------------------mjpg Connection-------------------------------------
-    //    cap[0] = cv::VideoCapture("http://192.168.12.37:8080/?action=stream");
     img[0].allocate(CAM_WIDTH, CROP_HEIGHT, OF_IMAGE_COLOR);
     screenFbo[0].allocate(CAM_WIDTH, CROP_HEIGHT);
     cap[0] = cv::VideoCapture("http://52.197.48.133:8080/?action=stream&type=mjpg");
     cap[0].set(CV_CAP_PROP_BUFFERSIZE, 3); // internal buffer will now store only 3 frames
     cap[0].set(CV_CAP_PROP_FPS, 0);
 
+#ifdef MULTISCREEN
     img[1].allocate(CAM_WIDTH, CROP_HEIGHT, OF_IMAGE_COLOR);
     screenFbo[1].allocate(CAM_WIDTH, CROP_HEIGHT);
     cap[1] = cv::VideoCapture("http://52.197.48.133:8082/?action=stream&type=mjpg");
@@ -44,6 +44,7 @@ void MainStream::setup(){
     screenFbo[3].allocate(CAM_WIDTH, CROP_HEIGHT);
     cap[3].set(CV_CAP_PROP_BUFFERSIZE, 3); // internal buffer will now store only 3 frames
     cap[3].set(CV_CAP_PROP_FPS, 0);
+#endif
 
 
     //---------------------------mjpg Connection--------------------------------------
@@ -113,7 +114,7 @@ void MainStream::update(){
         screenFbo[i].begin();
         ofClear(0);
         //        img[i].draw(0, 0);
-        chromakey[i]->drawFinalImage(0, 0, camW/2, camH/2);//chromacyかけたやつを描画
+        chromakey[i]->drawFinalImage(0, 0, CAM_WIDTH, CROP_HEIGHT);//chromacyかけたやつを描画
         screenFbo[i].end();
     }
     //---------------------FBOに描画--------------------
@@ -151,14 +152,53 @@ void MainStream::draw(){
         //-----------------------それぞれの描画------------------------
         ofPushMatrix();
         ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
-        ofRotate(45);
-        screenFbo[0].draw(50,50);
+#ifdef MULTISCREEN
+        ofPushMatrix();
+        ofTranslate(-225,100);
+        screenFbo[0].draw(0,0,450,337.5);
+        ofPopMatrix();
+
+        ofPushMatrix();
+        ofRotate(180);
+        ofTranslate(-225,100);
+        screenFbo[1].draw(0,0,450,337.5);
+        ofPopMatrix();
+
+        ofPushMatrix();
         ofRotate(90);
-        screenFbo[1].draw(50,50);
+        ofTranslate(-225,100);
+        screenFbo[2].draw(0,0,450,337.5);
+        ofPopMatrix();
+
+        ofPushMatrix();
+        ofRotate(270);
+        ofTranslate(-225,100);
+        screenFbo[3].draw(0,0,450,337.5);
+        ofPopMatrix();
+#else
+        ofPushMatrix();
+        ofTranslate(-225,100);
+        screenFbo[0].draw(0,0,450,337.5);
+        ofPopMatrix();
+
+        ofPushMatrix();
+        ofRotate(180);
+        ofTranslate(-225,100);
+        screenFbo[0].draw(0,0,450,337.5);
+        ofPopMatrix();
+
+        ofPushMatrix();
         ofRotate(90);
-        screenFbo[2].draw(50,50);
-        ofRotate(90);
-        screenFbo[3].draw(50,50);
+        ofTranslate(-225,100);
+        screenFbo[0].draw(0,0,450,337.5);
+        ofPopMatrix();
+
+        ofPushMatrix();
+        ofRotate(270);
+        ofTranslate(-225,100);
+        screenFbo[0].draw(0,0,450,337.5);
+        ofPopMatrix();
+#endif
         ofPopMatrix();
         //-----------------------それぞれの描画------------------------
     }
@@ -170,21 +210,21 @@ void MainStream::drawDebugMasks(int i) {
     int previewW = camW/2, previewH = camH/2, labelOffset = 10;
 
     chromakey[i]->drawBaseMask(camW + previewW, 0, previewW, previewH);
-    ofDrawBitmapStringHighlight("Base mask", camW + previewW, labelOffset, ofColor(0, 125), ofColor::white);
+    ofDrawBitmapStringHighlight("Base mask", camW + previewW, labelOffset, ofColor(125, 225), ofColor::white);
 
     chromakey[i]->drawDetailMask(camW + previewW, previewH, previewW, previewH);
-    ofDrawBitmapStringHighlight("Detailed mask", camW + previewW, previewH + labelOffset, ofColor(0, 125), ofColor::white);
+    ofDrawBitmapStringHighlight("Detailed mask", camW + previewW, previewH + labelOffset, ofColor(125, 225), ofColor::white);
 
     chromakey[i]->drawChromaMask(previewW, camH, previewW, previewH);
-    ofDrawBitmapStringHighlight("Chroma mask", previewW, camH + labelOffset, ofColor(0, 125), ofColor::white);
+    ofDrawBitmapStringHighlight("Chroma mask", previewW, camH + labelOffset, ofColor(125, 225), ofColor::white);
 
     drawCheckerboard(camW, camH, previewW, previewH, 5);
 
     chromakey[i]->drawFinalMask(camW, camH, previewW, previewH);
-    ofDrawBitmapStringHighlight("Final mask", camW, camH + labelOffset, ofColor(0, 125), ofColor::white);
+    ofDrawBitmapStringHighlight("Final mask", camW, camH + labelOffset, ofColor(125, 225), ofColor::white);
 
     img[i].draw(camW + previewW, camH, previewW, previewH);
-    ofDrawBitmapStringHighlight("RGB image", camW + previewW, camH + labelOffset, ofColor(0, 125), ofColor::white);
+    ofDrawBitmapStringHighlight("RGB image", camW + previewW, camH + labelOffset, ofColor(125, 225), ofColor::white);
 }
 
 //--------------------------------------------------------------
@@ -232,7 +272,9 @@ void MainStream::keyReleased(int key){
             mBlendmodeManager.nextIndex();
             break;
         case OF_KEY_RETURN:
+#ifdef MULTISCREEN
             tuningIndex = (tuningIndex+1)%3;
+#endif
             break;
         default:
             break;

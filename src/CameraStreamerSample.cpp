@@ -38,6 +38,7 @@ void CameraStreamerSample::setup(){
             cv::Mat frame;
             //Pop frame from queue and check if the frame is valid
             if (!cam.frame_queue[i]->empty()){
+                frame = cam.frame_queue[i]->back();
                 cam.frame_queue[i]->erase(cam.frame_queue[i]->end());
                 //Show frame on Highgui window
                 imshow(label[i], frame);

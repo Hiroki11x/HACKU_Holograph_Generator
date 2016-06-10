@@ -9,11 +9,16 @@
 #ifndef MainStream_hpp
 #define MainStream_hpp
 
-#define CAM_WIDTH 400
-#define CROP_HEIGHT 300
+#define CAM_WIDTH 200
+#define CROP_HEIGHT 150
 
+#define MULTISCREEN
+
+#ifdef MULTISCREEN
 #define SCREEN_NUM 4
-
+#else
+#define SCREEN_NUM 1
+#endif
 
 #include <opencv2/opencv.hpp>
 #include "ofMain.h"
