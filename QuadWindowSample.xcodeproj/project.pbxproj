@@ -489,6 +489,21 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		4E6E8CC21D09C2A5009D119F /* sandbox */ = {
+			isa = PBXGroup;
+			children = (
+				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				4EEA31981D08FF9700C59201 /* OpenCVTestScene.cpp */,
+				4EEA31991D08FF9700C59201 /* OpenCVTestScene.hpp */,
+				4EEA319F1D0911B500C59201 /* OpenCVScene2.cpp */,
+				4EEA31A01D0911B500C59201 /* OpenCVScene2.hpp */,
+				4E48B7B21D0937A0004AE84B /* OpenCVScene3.cpp */,
+				4E48B7B31D0937A0004AE84B /* OpenCVScene3.hpp */,
+			);
+			name = sandbox;
+			sourceTree = "<group>";
+		};
 		4EEA2F3B1D08FA5400C59201 /* ofxOpenCv */ = {
 			isa = PBXGroup;
 			children = (
@@ -1088,14 +1103,6 @@
 		4EEA31971D08FF8200C59201 /* scene */ = {
 			isa = PBXGroup;
 			children = (
-				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
-				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				4EEA31981D08FF9700C59201 /* OpenCVTestScene.cpp */,
-				4EEA31991D08FF9700C59201 /* OpenCVTestScene.hpp */,
-				4EEA319F1D0911B500C59201 /* OpenCVScene2.cpp */,
-				4EEA31A01D0911B500C59201 /* OpenCVScene2.hpp */,
-				4E48B7B21D0937A0004AE84B /* OpenCVScene3.cpp */,
-				4E48B7B31D0937A0004AE84B /* OpenCVScene3.hpp */,
 				4E6E8C741D098935009D119F /* MainStream.cpp */,
 				4E6E8C751D098935009D119F /* MainStream.hpp */,
 			);
@@ -1160,6 +1167,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4E6E8CC21D09C2A5009D119F /* sandbox */,
 				4EEA31971D08FF8200C59201 /* scene */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 			);

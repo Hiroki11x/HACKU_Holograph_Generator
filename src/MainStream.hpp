@@ -26,7 +26,7 @@ class MainStream : public ofBaseApp{
     void draw();
     void exit();
 
-    void drawDebugMasks();
+    void drawDebugMasks(int i) ;
     void drawCheckerboard(float x, float y, int width, int height, int size);
 
     void keyPressed(int key);
@@ -42,7 +42,7 @@ class MainStream : public ofBaseApp{
     //-------------------Chromakey-----------------
     ofImage bg_image;
 
-    ofxChromaKeyShader *chromakey;
+    ofxChromaKeyShader *chromakey[4];
     int camW, camH;
 
     ofFbo checkerboardTex;
