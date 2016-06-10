@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0679AA1D0A4CFB00A71778 /* BlendmodeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E0679A81D0A4CFB00A71778 /* BlendmodeManager.cpp */; };
 		4E48B7B41D0937A0004AE84B /* OpenCVScene3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E48B7B21D0937A0004AE84B /* OpenCVScene3.cpp */; };
 		4E6E8C761D098935009D119F /* MainStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E8C741D098935009D119F /* MainStream.cpp */; };
 		4E6E8CA11D09897C009D119F /* license.md in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E8C931D09897C009D119F /* license.md */; };
@@ -20,6 +21,9 @@
 		4E6E8CBF1D0989ED009D119F /* ofxSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E8CB41D0989ED009D119F /* ofxSlider.cpp */; };
 		4E6E8CC01D0989ED009D119F /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E8CB61D0989ED009D119F /* ofxSliderGroup.cpp */; };
 		4E6E8CC11D0989ED009D119F /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E8CB81D0989ED009D119F /* ofxToggle.cpp */; };
+		4E7142691D0A5DF800F17A33 /* GrabCutSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E7142671D0A5DF800F17A33 /* GrabCutSample.cpp */; };
+		4E71426D1D0A92B500F17A33 /* CameraStreamer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E71426B1D0A92B500F17A33 /* CameraStreamer.cpp */; };
+		4E7142701D0A92EF00F17A33 /* CameraStreamerSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E71426E1D0A92EF00F17A33 /* CameraStreamerSample.cpp */; };
 		4EEA30231D08FA5400C59201 /* opencv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EEA30091D08FA5400C59201 /* opencv.a */; };
 		4EEA30241D08FA5400C59201 /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA30131D08FA5400C59201 /* ofxCvColorImage.cpp */; };
 		4EEA30251D08FA5400C59201 /* ofxCvContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA30161D08FA5400C59201 /* ofxCvContourFinder.cpp */; };
@@ -96,6 +100,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E0679A81D0A4CFB00A71778 /* BlendmodeManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlendmodeManager.cpp; sourceTree = "<group>"; };
+		4E0679A91D0A4CFB00A71778 /* BlendmodeManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BlendmodeManager.hpp; sourceTree = "<group>"; };
 		4E48B7B21D0937A0004AE84B /* OpenCVScene3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCVScene3.cpp; sourceTree = "<group>"; };
 		4E48B7B31D0937A0004AE84B /* OpenCVScene3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenCVScene3.hpp; sourceTree = "<group>"; };
 		4E6E8C741D098935009D119F /* MainStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainStream.cpp; sourceTree = "<group>"; };
@@ -127,6 +133,12 @@
 		4E6E8CB71D0989ED009D119F /* ofxSliderGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSliderGroup.h; sourceTree = "<group>"; };
 		4E6E8CB81D0989ED009D119F /* ofxToggle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxToggle.cpp; sourceTree = "<group>"; };
 		4E6E8CB91D0989ED009D119F /* ofxToggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxToggle.h; sourceTree = "<group>"; };
+		4E7142671D0A5DF800F17A33 /* GrabCutSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GrabCutSample.cpp; sourceTree = "<group>"; };
+		4E7142681D0A5DF800F17A33 /* GrabCutSample.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GrabCutSample.hpp; sourceTree = "<group>"; };
+		4E71426B1D0A92B500F17A33 /* CameraStreamer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraStreamer.cpp; sourceTree = "<group>"; };
+		4E71426C1D0A92B500F17A33 /* CameraStreamer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraStreamer.hpp; sourceTree = "<group>"; };
+		4E71426E1D0A92EF00F17A33 /* CameraStreamerSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraStreamerSample.cpp; sourceTree = "<group>"; };
+		4E71426F1D0A92EF00F17A33 /* CameraStreamerSample.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraStreamerSample.hpp; sourceTree = "<group>"; };
 		4EEA2F3C1D08FA5400C59201 /* addon_config.mk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = addon_config.mk; sourceTree = "<group>"; };
 		4EEA2F411D08FA5400C59201 /* cv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv.h; sourceTree = "<group>"; };
 		4EEA2F421D08FA5400C59201 /* cv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cv.hpp; sourceTree = "<group>"; };
@@ -422,6 +434,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E0679A71D0A4CCB00A71778 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				4E0679A81D0A4CFB00A71778 /* BlendmodeManager.cpp */,
+				4E0679A91D0A4CFB00A71778 /* BlendmodeManager.hpp */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
 		4E6E8C771D09897C009D119F /* ofxChromaKeyShader */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,8 +521,21 @@
 				4EEA31A01D0911B500C59201 /* OpenCVScene2.hpp */,
 				4E48B7B21D0937A0004AE84B /* OpenCVScene3.cpp */,
 				4E48B7B31D0937A0004AE84B /* OpenCVScene3.hpp */,
+				4E7142671D0A5DF800F17A33 /* GrabCutSample.cpp */,
+				4E7142681D0A5DF800F17A33 /* GrabCutSample.hpp */,
+				4E71426E1D0A92EF00F17A33 /* CameraStreamerSample.cpp */,
+				4E71426F1D0A92EF00F17A33 /* CameraStreamerSample.hpp */,
 			);
 			name = sandbox;
+			sourceTree = "<group>";
+		};
+		4E71426A1D0A927800F17A33 /* multithread */ = {
+			isa = PBXGroup;
+			children = (
+				4E71426B1D0A92B500F17A33 /* CameraStreamer.cpp */,
+				4E71426C1D0A92B500F17A33 /* CameraStreamer.hpp */,
+			);
+			name = multithread;
 			sourceTree = "<group>";
 		};
 		4EEA2F3B1D08FA5400C59201 /* ofxOpenCv */ = {
@@ -1167,6 +1201,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4E71426A1D0A927800F17A33 /* multithread */,
+				4E0679A71D0A4CCB00A71778 /* manager */,
 				4E6E8CC21D09C2A5009D119F /* sandbox */,
 				4EEA31971D08FF8200C59201 /* scene */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
@@ -1294,9 +1330,12 @@
 				4EEA316F1D08FA7100C59201 /* Kalman.cpp in Sources */,
 				4E6E8CC01D0989ED009D119F /* ofxSliderGroup.cpp in Sources */,
 				4E6E8CA21D09897C009D119F /* README.md in Sources */,
+				4E0679AA1D0A4CFB00A71778 /* BlendmodeManager.cpp in Sources */,
 				4EEA316C1D08FA7100C59201 /* Distance.cpp in Sources */,
 				4E6E8CC11D0989ED009D119F /* ofxToggle.cpp in Sources */,
+				4E7142701D0A92EF00F17A33 /* CameraStreamerSample.cpp in Sources */,
 				4E48B7B41D0937A0004AE84B /* OpenCVScene3.cpp in Sources */,
+				4E7142691D0A5DF800F17A33 /* GrabCutSample.cpp in Sources */,
 				4EEA30281D08FA5400C59201 /* ofxCvHaarFinder.cpp in Sources */,
 				4E6E8CBA1D0989ED009D119F /* ofxBaseGui.cpp in Sources */,
 				4E6E8CBB1D0989ED009D119F /* ofxButton.cpp in Sources */,
@@ -1321,6 +1360,7 @@
 				4E6E8CA31D09897C009D119F /* ofxChromaKeyShader.cpp in Sources */,
 				4EEA31761D08FA7100C59201 /* readme.md in Sources */,
 				4E6E8CBD1D0989ED009D119F /* ofxLabel.cpp in Sources */,
+				4E71426D1D0A92B500F17A33 /* CameraStreamer.cpp in Sources */,
 				4EEA319A1D08FF9700C59201 /* OpenCVTestScene.cpp in Sources */,
 				4EEA30251D08FA5400C59201 /* ofxCvContourFinder.cpp in Sources */,
 			);
