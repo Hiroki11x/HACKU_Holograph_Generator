@@ -480,7 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				4E255C381D0B21E800603DFF /* manager */,
-				4E255C351D0B18ED00603DFF /* workspace2 */,
+				4E255C351D0B18ED00603DFF /* release */,
 				4E255C261D0ABD2000603DFF /* workspace */,
 				4E255C1F1D0AB21200603DFF /* cvsample */,
 				4E255C1E1D0AB1EE00603DFF /* main */,
@@ -527,7 +527,6 @@
 		4E255C1E1D0AB1EE00603DFF /* main */ = {
 			isa = PBXGroup;
 			children = (
-				4E255BFA1D0AB19600603DFF /* main.cpp */,
 				4E255BFD1D0AB19600603DFF /* MainStream.cpp */,
 				4E255BFF1D0AB19600603DFF /* MainStream.hpp */,
 			);
@@ -552,15 +551,16 @@
 			name = workspace;
 			sourceTree = "<group>";
 		};
-		4E255C351D0B18ED00603DFF /* workspace2 */ = {
+		4E255C351D0B18ED00603DFF /* release */ = {
 			isa = PBXGroup;
 			children = (
+				4E255BFA1D0AB19600603DFF /* main.cpp */,
 				4E255C2E1D0B16AE00603DFF /* OFThreadStream.cpp */,
 				4E255C2F1D0B16AE00603DFF /* OFThreadStream.hpp */,
 				4E255C311D0B16E800603DFF /* MovieThread.cpp */,
 				4E255C321D0B16E800603DFF /* MovieThread.hpp */,
 			);
-			name = workspace2;
+			name = release;
 			sourceTree = "<group>";
 		};
 		4E255C381D0B21E800603DFF /* manager */ = {

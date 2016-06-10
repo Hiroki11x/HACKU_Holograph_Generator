@@ -6,6 +6,13 @@
 //
 //
 
+/*
+ 
+ 並列で動画を読み込み
+ メインスレッドでクリマキー合成してる
+ 
+ */
+
 #ifndef OFThreadStream_hpp
 #define OFThreadStream_hpp
 
@@ -15,7 +22,7 @@
 #define MULTISCREEN
 
 #ifdef MULTISCREEN
-#define SCREEN_NUM 2
+#define SCREEN_NUM 3
 #else
 #define SCREEN_NUM 1
 #endif

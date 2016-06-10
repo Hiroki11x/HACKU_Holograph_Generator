@@ -24,10 +24,21 @@ public:
     cv::Mat frame;
 
     void init(int index){
-        if(index == 0){
-            cap = cv::VideoCapture("http://192.168.12.13:7890/ipvideo.mjpg");
-        }else{
-            cap = cv::VideoCapture("http://192.168.12.24:7890/ipvideo.mjpg");
+        switch(index){
+            case 0:
+                cap = cv::VideoCapture("http://192.168.12.13:7890/ipvideo.mjpg");
+                break;
+            case 1:
+                cap = cv::VideoCapture("http://192.168.12.24:7890/ipvideo.mjpg");
+                break;
+            case 2:
+                cap = cv::VideoCapture("http://192.168.12.31:7890/ipvideo.mjpg");
+                break;
+            case 3:
+                cap = cv::VideoCapture("http://192.168.12.24:7890/ipvideo.mjpg");
+                break;
+            default:
+                break;
         }
 
         cap.set(CV_CAP_PROP_BUFFERSIZE, 3); // internal buffer will now store only 3 frames
