@@ -9,17 +9,47 @@
 #ifndef OFThreadStream_hpp
 #define OFThreadStream_hpp
 
-#define SCREEN_NUM 4
+#define CAM_WIDTH 200
+#define CROP_HEIGHT 150
+
+#define MULTISCREEN
+
+#ifdef MULTISCREEN
+#define SCREEN_NUM 2
+#else
+#define SCREEN_NUM 1
+#endif
 
 #include "ofMain.h"
 #include "MovieThread.hpp"
+#include "ofxChromaKeyShader.h"
+#include "ofxGui.h"
+#include "BlendmodeManager.hpp"
 
 
 class OFThreadStream : public ofBaseApp{
 
 public:
-    MovieThread thread[2];
+    ofFbo screenFbo[4];
+    MovieThread thread[4];
     ofImage myImage;
+
+    BlendmodeManager mBlendmodeManager;
+    int tuningIndex;
+
+    //-------------------Chromakey-----------------
+    ofImage bg_image;
+
+    ofxChromaKeyShader *chromakey[4];
+    int camW, camH;
+
+    ofFbo checkerboardTex;
+
+    ofxPanel chromaGui[4];
+
+    bool bShowGui;
+    bool bUpdateBgColor;
+    //-------------------Chromakey-----------------
 
     void setup();
     void update();

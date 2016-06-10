@@ -20,7 +20,7 @@ void CvParallelStream::setup(){
 
     ofSetWindowShape(1920,1480);//WindowSizeは1980*1080
 
-    mBlendmodeManager.init(SCREEN_NUM);
+    mBlendmodeManager.init();
     bShowGui = true;
     tuningIndex = 0;
 

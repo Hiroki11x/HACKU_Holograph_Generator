@@ -479,6 +479,7 @@
 		4E255BF51D0AB18900603DFF /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4E255C381D0B21E800603DFF /* manager */,
 				4E255C351D0B18ED00603DFF /* workspace2 */,
 				4E255C261D0ABD2000603DFF /* workspace */,
 				4E255C1F1D0AB21200603DFF /* cvsample */,
@@ -498,8 +499,6 @@
 				4E255C001D0AB19600603DFF /* CameraStreamerSample.hpp */,
 				4E255C011D0AB19600603DFF /* CameraStreamer.cpp */,
 				4E255C021D0AB19600603DFF /* CameraStreamer.hpp */,
-				4E255C031D0AB19600603DFF /* BlendmodeManager.cpp */,
-				4E255C041D0AB19600603DFF /* BlendmodeManager.hpp */,
 				4E255C051D0AB19600603DFF /* GrabCutSample.cpp */,
 				4E255C061D0AB19600603DFF /* GrabCutSample.hpp */,
 				4E255C071D0AB19600603DFF /* ofApp.cpp */,
@@ -562,6 +561,15 @@
 				4E255C321D0B16E800603DFF /* MovieThread.hpp */,
 			);
 			name = workspace2;
+			sourceTree = "<group>";
+		};
+		4E255C381D0B21E800603DFF /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				4E255C031D0AB19600603DFF /* BlendmodeManager.cpp */,
+				4E255C041D0AB19600603DFF /* BlendmodeManager.hpp */,
+			);
+			name = manager;
 			sourceTree = "<group>";
 		};
 		4E6E8C771D09897C009D119F /* ofxChromaKeyShader */ = {

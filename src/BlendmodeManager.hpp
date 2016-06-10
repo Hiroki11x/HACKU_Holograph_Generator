@@ -16,7 +16,7 @@ private:
     int blendmodeIndex;
     int max_num;
 public:
-    void init(int max_num);
+    void init();
     void nextIndex();
     string getBlendmodeName();
 };

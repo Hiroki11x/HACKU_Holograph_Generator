@@ -16,7 +16,7 @@ void MainStream::setup(){
     camW = 960; camH = 740;
     ofSetWindowShape(camW*2, camH*1.5f);//WindowSizeは1980*1080
 
-    mBlendmodeManager.init(SCREEN_NUM);
+    mBlendmodeManager.init();
     tuningIndex = 0;
 
     //---------------------------mjpg Connection-------------------------------------

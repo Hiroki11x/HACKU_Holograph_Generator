@@ -8,9 +8,8 @@
 
 #include "BlendmodeManager.hpp"
 
-void BlendmodeManager::init(int max_num){
+void BlendmodeManager::init(){
     blendmodeIndex = 0;
-    this->max_num=max_num;
 }
 
 void BlendmodeManager::nextIndex(){
