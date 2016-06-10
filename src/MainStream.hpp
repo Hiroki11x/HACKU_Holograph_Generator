@@ -9,9 +9,16 @@
 #ifndef MainStream_hpp
 #define MainStream_hpp
 
-#define CAM_WIDTH 800
-#define CROP_HEIGHT 600
+#define CAM_WIDTH 200
+#define CROP_HEIGHT 150
 
+#define MULTISCREEN
+
+#ifdef MULTISCREEN
+#define SCREEN_NUM 4
+#else
+#define SCREEN_NUM 1
+#endif
 
 #include <opencv2/opencv.hpp>
 #include "ofMain.h"
@@ -19,6 +26,7 @@
 #include "ofxOpenCv.h"
 #include "ofxChromaKeyShader.h"
 #include "ofxGui.h"
+#include "BlendmodeManager.hpp"
 
 class MainStream : public ofBaseApp{
     void setup();
@@ -39,6 +47,9 @@ class MainStream : public ofBaseApp{
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
+    BlendmodeManager mBlendmodeManager;
+    int tuningIndex;
+
     //-------------------Chromakey-----------------
     ofImage bg_image;
 
@@ -47,7 +58,8 @@ class MainStream : public ofBaseApp{
 
     ofFbo checkerboardTex;
 
-    ofxPanel chromaGui;
+    ofxPanel chromaGui[4];
+
     bool bShowGui;
     bool bUpdateBgColor;
     //-------------------Chromakey-----------------
