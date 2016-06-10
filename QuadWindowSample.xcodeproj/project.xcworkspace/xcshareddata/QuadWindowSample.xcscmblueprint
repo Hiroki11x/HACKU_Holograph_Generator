@@ -1,20 +1,24 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "77867922273CEA1625F332567A4AB3DB60F0760D",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7BA8789D9B4193643DA0A4E9E0465F795C11C065",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "77867922273CEA1625F332567A4AB3DB60F0760D" : 0,
     "611BE3E50886D611714AA25B7B86C978F1028A39" : 0,
-    "77867922273CEA1625F332567A4AB3DB60F0760D" : 0
+    "C03252C65B99CFBEBC32969661D647D6554DD9E6" : 0,
+    "7BA8789D9B4193643DA0A4E9E0465F795C11C065" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D10A99BF-27E0-4193-AB44-84BA9237C322",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "611BE3E50886D611714AA25B7B86C978F1028A39" : "..\/addons",
-    "77867922273CEA1625F332567A4AB3DB60F0760D" : "openFrameworksSample\/"
+    "77867922273CEA1625F332567A4AB3DB60F0760D" : "",
+    "611BE3E50886D611714AA25B7B86C978F1028A39" : "..\/..\/addons",
+    "C03252C65B99CFBEBC32969661D647D6554DD9E6" : "..\/..\/addons\/ofxChromaKeyShader",
+    "7BA8789D9B4193643DA0A4E9E0465F795C11C065" : "QuadWindowSample\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "QuadWindowSample",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "QuadWindowSample\/QuadWindowSample.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "QuadWindowSample.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Hiroki11x\/ofxCustomAddons.git",
@@ -25,6 +29,16 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Hiroki11x\/openFrameworksSample.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "77867922273CEA1625F332567A4AB3DB60F0760D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Hiroki11x\/HACKU_Holograph_Generator.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7BA8789D9B4193643DA0A4E9E0465F795C11C065"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:robotconscience\/ofxChromaKeyShader.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C03252C65B99CFBEBC32969661D647D6554DD9E6"
     }
   ]
 }
