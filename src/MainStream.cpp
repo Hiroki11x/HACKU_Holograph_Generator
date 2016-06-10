@@ -15,19 +15,19 @@ void MainStream::setup(){
     ofSetWindowShape(camW*2, camH*1.5f);//WindowSizeは1980*1080
 
     //---------------------------mjpg Connection-------------------------------------
-    cap[0] = cv::VideoCapture("http://192.168.12.37:8080/?action=stream");
+//    cap[0] = cv::VideoCapture("http://192.168.12.37:8080/?action=stream");
     img[0].allocate(CAM_WIDTH, CROP_HEIGHT, OF_IMAGE_COLOR);
-//    screenFbo[0].allocate(CAM_WIDTH, CROP_HEIGHT);
+    screenFbo[0].allocate(CAM_WIDTH, CROP_HEIGHT);
 
-    cap[1] = cv::VideoCapture("http://192.168.12.38:8080/?action=stream");
-    img[1].allocate(CAM_WIDTH, CROP_HEIGHT, OF_IMAGE_COLOR);
+//    cap[1] = cv::VideoCapture("http://192.168.12.38:8080/?action=stream");
+//    img[1].allocate(CAM_WIDTH, CROP_HEIGHT, OF_IMAGE_COLOR);
 //    screenFbo[1].allocate(CAM_WIDTH, CROP_HEIGHT);
 
-    cap[2] = cv::VideoCapture("http://192.168.12.39:8080/?action=stream");
-    img[2].allocate(CAM_WIDTH, CROP_HEIGHT, OF_IMAGE_COLOR);
+//    cap[2] = cv::VideoCapture("http://192.168.12.39:8080/?action=stream");
+//    img[2].allocate(CAM_WIDTH, CROP_HEIGHT, OF_IMAGE_COLOR);
 
     //192.168.157.5
-    //    cap[1] = cv::VideoCapture("http://192.168.157.5:7890/ipvideo.mjpg");
+    cap[0] = cv::VideoCapture("http://192.168.149.229:7890/ipvideo.mjpg");
     //    img[1].allocate(CAM_WIDTH, CROP_HEIGHT, OF_IMAGE_COLOR);
     //
     //    //192.168.145.27
@@ -40,8 +40,8 @@ void MainStream::setup(){
     bShowGui = true;
     bUpdateBgColor = true;
     chromakey[0] = new ofxChromaKeyShader(camW, camH);
-    chromakey[1] = new ofxChromaKeyShader(camW, camH);
-    chromakey[2] = new ofxChromaKeyShader(camW, camH);
+//    chromakey[1] = new ofxChromaKeyShader(camW, camH);
+//    chromakey[2] = new ofxChromaKeyShader(camW, camH);
 
     // maskee
     bg_image.load("black.jpg");//真っ黒背景(問題ないきがする)
@@ -54,10 +54,10 @@ void MainStream::setup(){
     chromaGui.setup();
     chromaGui.add(chromakey[0]->generalParams);
     chromaGui.add(chromakey[0]->positionParams);
-    chromaGui.add(chromakey[1]->generalParams);
-    chromaGui.add(chromakey[1]->positionParams);
-    chromaGui.add(chromakey[2]->generalParams);
-    chromaGui.add(chromakey[2]->positionParams);
+//    chromaGui.add(chromakey[1]->generalParams);
+//    chromaGui.add(chromakey[1]->positionParams);
+//    chromaGui.add(chromakey[2]->generalParams);
+//    chromaGui.add(chromakey[2]->positionParams);
     chromaGui.setPosition(0, 0);
     //---------------------GUI---------------------
 
@@ -73,7 +73,7 @@ void MainStream::update(){
     ofSetWindowTitle("[FPS]: "+ofToString(ofGetFrameRate()));
 
     //-------------取得した videocapture をchromakeyにセット--------------
-    for(int i = 0; i<3;i++){
+    for(int i = 0; i<1;i++){
         if (cap[i].isOpened() ){
             cap[i] >> frame[i];
             if(frame[i].empty()){
@@ -93,16 +93,16 @@ void MainStream::update(){
     //-------------取得した videocapture をchromakeyにセット--------------
 
 
-    /*
+
      //---------------------FBOに描画--------------------
-     for(int i = 0 ;i<2 ;i++){
+     for(int i = 0 ;i<1 ;i++){
      screenFbo[i].begin();
      ofClear(0);
-     if(img[i].isAllocated())img[i].draw(0,0);
+     chromakey[0]->drawFinalImage(0, 0, camW/2, camH/2);//chromacyかけたやつを描画
      screenFbo[i].end();
      }
      //---------------------FBOに描画--------------------
-     */
+
 
 }
 
@@ -110,23 +110,6 @@ void MainStream::update(){
 void MainStream::draw(){
     ofSetColor(255);
     ofBackground(0);
-
-    //------------------------Chromakeyを描画-------------------------
-    chromakey[0]->drawFinalImage(camW/2, 0, camW/2, camH/2);//chromacyかけたやつを描画
-    chromakey[1]->drawFinalImage(camW, 0, camW/2, camH/2);//chromacyかけたやつを描画
-    chromakey[2]->drawFinalImage(camW/2, camH/2, camW/2, camH/2);//chromacyかけたやつを描画
-//    drawDebugMasks(0);//Debug各種をサブルーチン化
-    //------------------------Chromakeyを描画-------------------------
-
-    /*
-    //-----------------------それぞれの描画------------------------
-    ofPushMatrix();
-    screenFbo[0].draw(0,0);
-    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
-    screenFbo[1].draw(0,0);
-    ofPopMatrix();
-    //-----------------------それぞれの描画------------------------
-     */
 
     //----------------------------GUIの描画--------------------------
     if(bShowGui) {
@@ -141,8 +124,30 @@ void MainStream::draw(){
             ofDrawBitmapString("bgColor", bgColorPos.x + camW/2, bgColorPos.y - 5);
             ofPopStyle();
         }
+
+        //------------------------Chromakeyを描画-------------------------
+        chromakey[0]->drawFinalImage(camW/2, 0, camW, camH);//chromacyかけたやつを描画
+        //    chromakey[1]->drawFinalImage(camW, 0, camW/2, camH/2);//chromacyかけたやつを描画
+        //    chromakey[2]->drawFinalImage(camW/2, camH/2, camW/2, camH/2);//chromacyかけたやつを描画
+        drawDebugMasks(0);//Debug各種をサブルーチン化
+        //------------------------Chromakeyを描画-------------------------
     }
     //----------------------------GUIの描画--------------------------
+    else{
+        //-----------------------それぞれの描画------------------------
+        ofPushMatrix();
+        ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
+        ofRotate(45);
+        screenFbo[0].draw(50,50);
+        ofRotate(90);
+        screenFbo[0].draw(50,50);
+        ofRotate(90);
+        screenFbo[0].draw(50,50);
+        ofRotate(90);
+        screenFbo[0].draw(50,50);
+        ofPopMatrix();
+        //-----------------------それぞれの描画------------------------
+    }
 }
 
 //--------------------------------------------------------------
