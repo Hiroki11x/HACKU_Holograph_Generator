@@ -25,6 +25,10 @@
 		4E255C2C1D0AC83400603DFF /* CvParallelThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E255C2A1D0AC83400603DFF /* CvParallelThread.cpp */; };
 		4E255C301D0B16AE00603DFF /* OFThreadStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E255C2E1D0B16AE00603DFF /* OFThreadStream.cpp */; };
 		4E255C331D0B16E800603DFF /* MovieThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E255C311D0B16E800603DFF /* MovieThread.cpp */; };
+		4E4BBB4C1D0BB3A800D70E0D /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E4BBB451D0BB3A800D70E0D /* tinyxml.cpp */; };
+		4E4BBB4D1D0BB3A800D70E0D /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E4BBB471D0BB3A800D70E0D /* tinyxmlerror.cpp */; };
+		4E4BBB4E1D0BB3A800D70E0D /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E4BBB481D0BB3A800D70E0D /* tinyxmlparser.cpp */; };
+		4E4BBB4F1D0BB3A800D70E0D /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E4BBB4A1D0BB3A800D70E0D /* ofxXmlSettings.cpp */; };
 		4E6E8CA11D09897C009D119F /* license.md in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E8C931D09897C009D119F /* license.md */; };
 		4E6E8CA21D09897C009D119F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E8C951D09897C009D119F /* README.md */; };
 		4E6E8CA31D09897C009D119F /* ofxChromaKeyShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E8C9C1D09897C009D119F /* ofxChromaKeyShader.cpp */; };
@@ -143,6 +147,12 @@
 		4E255C2F1D0B16AE00603DFF /* OFThreadStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OFThreadStream.hpp; sourceTree = "<group>"; };
 		4E255C311D0B16E800603DFF /* MovieThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieThread.cpp; sourceTree = "<group>"; };
 		4E255C321D0B16E800603DFF /* MovieThread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MovieThread.hpp; sourceTree = "<group>"; };
+		4E4BBB451D0BB3A800D70E0D /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		4E4BBB461D0BB3A800D70E0D /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		4E4BBB471D0BB3A800D70E0D /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		4E4BBB481D0BB3A800D70E0D /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		4E4BBB4A1D0BB3A800D70E0D /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
+		4E4BBB4B1D0BB3A800D70E0D /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		4E6E8C781D09897C009D119F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4E6E8C931D09897C009D119F /* license.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = license.md; sourceTree = "<group>"; };
 		4E6E8C941D09897C009D119F /* ofxaddons_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ofxaddons_thumbnail.png; sourceTree = "<group>"; };
@@ -570,6 +580,36 @@
 				4E255C041D0AB19600603DFF /* BlendmodeManager.hpp */,
 			);
 			name = manager;
+			sourceTree = "<group>";
+		};
+		4E4BBB431D0BB3A800D70E0D /* ofxXmlSettings */ = {
+			isa = PBXGroup;
+			children = (
+				4E4BBB441D0BB3A800D70E0D /* libs */,
+				4E4BBB491D0BB3A800D70E0D /* src */,
+			);
+			name = ofxXmlSettings;
+			path = ../../../addons/ofxXmlSettings;
+			sourceTree = "<group>";
+		};
+		4E4BBB441D0BB3A800D70E0D /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				4E4BBB451D0BB3A800D70E0D /* tinyxml.cpp */,
+				4E4BBB461D0BB3A800D70E0D /* tinyxml.h */,
+				4E4BBB471D0BB3A800D70E0D /* tinyxmlerror.cpp */,
+				4E4BBB481D0BB3A800D70E0D /* tinyxmlparser.cpp */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		4E4BBB491D0BB3A800D70E0D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				4E4BBB4A1D0BB3A800D70E0D /* ofxXmlSettings.cpp */,
+				4E4BBB4B1D0BB3A800D70E0D /* ofxXmlSettings.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		4E6E8C771D09897C009D119F /* ofxChromaKeyShader */ = {
@@ -1245,6 +1285,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				4E4BBB431D0BB3A800D70E0D /* ofxXmlSettings */,
 				4E255BD91D0AAC5100603DFF /* ofxOpenGLContextScope */,
 				4E6E8CA71D0989ED009D119F /* ofxGui */,
 				4E6E8C771D09897C009D119F /* ofxChromaKeyShader */,
@@ -1411,6 +1452,7 @@
 				4EEA316F1D08FA7100C59201 /* Kalman.cpp in Sources */,
 				4E6E8CC01D0989ED009D119F /* ofxSliderGroup.cpp in Sources */,
 				4E6E8CA21D09897C009D119F /* README.md in Sources */,
+				4E4BBB4E1D0BB3A800D70E0D /* tinyxmlparser.cpp in Sources */,
 				4EEA316C1D08FA7100C59201 /* Distance.cpp in Sources */,
 				4E6E8CC11D0989ED009D119F /* ofxToggle.cpp in Sources */,
 				4EEA30281D08FA5400C59201 /* ofxCvHaarFinder.cpp in Sources */,
@@ -1428,6 +1470,7 @@
 				4EEA30241D08FA5400C59201 /* ofxCvColorImage.cpp in Sources */,
 				4EEA30261D08FA5400C59201 /* ofxCvFloatImage.cpp in Sources */,
 				4EEA316D1D08FA7100C59201 /* Flow.cpp in Sources */,
+				4E4BBB4F1D0BB3A800D70E0D /* ofxXmlSettings.cpp in Sources */,
 				4E255C0F1D0AB19600603DFF /* OFThreadSample.cpp in Sources */,
 				4E255C141D0AB19600603DFF /* CameraStreamerSample.cpp in Sources */,
 				4E255C2C1D0AC83400603DFF /* CvParallelThread.cpp in Sources */,
@@ -1443,9 +1486,11 @@
 				4EEA31711D08FA7100C59201 /* RunningBackground.cpp in Sources */,
 				4E255C1A1D0AB19600603DFF /* OpenCVScene2.cpp in Sources */,
 				4E6E8CBF1D0989ED009D119F /* ofxSlider.cpp in Sources */,
+				4E4BBB4D1D0BB3A800D70E0D /* tinyxmlerror.cpp in Sources */,
 				4E255C151D0AB19600603DFF /* CameraStreamer.cpp in Sources */,
 				4EEA31681D08FA7100C59201 /* ETF.cpp in Sources */,
 				4E6E8CA31D09897C009D119F /* ofxChromaKeyShader.cpp in Sources */,
+				4E4BBB4C1D0BB3A800D70E0D /* tinyxml.cpp in Sources */,
 				4EEA31761D08FA7100C59201 /* readme.md in Sources */,
 				4E6E8CBD1D0989ED009D119F /* ofxLabel.cpp in Sources */,
 				4E255C121D0AB19600603DFF /* MultithreadSample.cpp in Sources */,

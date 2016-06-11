@@ -70,7 +70,7 @@ void OFThreadStream::update() {
 
 
 void OFThreadStream::exit() {
-    for(int i = 0 ;i<2;i++){
+    for(int i = 0 ;i<SCREEN_NUM;i++){
         thread[i].stopThread();
     }
     delete *chromakey;

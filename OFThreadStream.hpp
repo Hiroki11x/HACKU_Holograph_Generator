@@ -19,10 +19,10 @@
 #define CAM_WIDTH 200
 #define CROP_HEIGHT 150
 
-//#define MULTISCREEN
+#define MULTISCREEN
 
 #ifdef MULTISCREEN
-#define SCREEN_NUM 3
+#define SCREEN_NUM 4
 #else
 #define SCREEN_NUM 1
 #endif
