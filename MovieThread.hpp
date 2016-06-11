@@ -25,10 +25,10 @@ public:
 
     void init(int index){
         switch(index){
-            case 0:
+            case 1:
                 cap = cv::VideoCapture("http://192.168.12.13:7890/ipvideo.mjpg");
                 break;
-            case 1:
+            case 0:
                 cap = cv::VideoCapture("http://192.168.12.24:7890/ipvideo.mjpg");
                 break;
             case 2:

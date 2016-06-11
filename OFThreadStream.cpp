@@ -167,7 +167,6 @@ void OFThreadStream::drawDebugMasks(int i) {
     ofSetColor(255);
     int previewW = camW/2, previewH = camH/2, labelOffset = 10;
 
-#ifdef MULTISCREEN
     chromakey[i]->drawBaseMask(camW + previewW, 0, previewW, previewH);
     ofDrawBitmapStringHighlight("Base mask", camW + previewW, labelOffset, ofColor(0, 125), ofColor::white);
 
@@ -181,7 +180,6 @@ void OFThreadStream::drawDebugMasks(int i) {
 
     chromakey[i]->drawFinalMask(camW, camH, previewW, previewH);
     ofDrawBitmapStringHighlight("Final mask", camW, camH + labelOffset, ofColor(0, 125), ofColor::white);
-#endif
 
     thread[i].img.draw(camW + previewW, camH, previewW, previewH);
     ofDrawBitmapStringHighlight("RGB image", camW + previewW, camH + labelOffset, ofColor(0, 125), ofColor::white);
