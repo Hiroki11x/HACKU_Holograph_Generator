@@ -13,7 +13,7 @@ void OFThreadStream::setup() {
 
     ofxOpenGLContextScope::setup();
     // start the thread
-    for(int i = 0 ;i<2;i++){
+    for(int i = 0 ;i<SCREEN_NUM;i++){
         thread[i].init(i);
         thread[i].startThread();    // blocking, non verbose
         screenFbo[i].allocate(CAM_WIDTH, CROP_HEIGHT);
@@ -70,7 +70,7 @@ void OFThreadStream::update() {
 
 
 void OFThreadStream::exit() {
-    for(int i = 0 ;i<2;i++){
+    for(int i = 0 ;i<SCREEN_NUM;i++){
         thread[i].stopThread();
     }
     delete *chromakey;
@@ -86,12 +86,16 @@ void OFThreadStream::draw() {
         //BackgroundColorはどこにするか見たいな四角形を描画
         if(bUpdateBgColor) {
             ofPushStyle();
+            ofPushMatrix();
+            ofTranslate(camW/2,0);
+            ofScale(4.8,4.8);
             ofNoFill();
             ofSetLineWidth(3);
             ofSetColor(255);
             ofVec2f bgColorPos = chromakey[tuningIndex]->bgColorPos.get();
-            ofDrawRectangle(bgColorPos.x + camW/2, bgColorPos.y, chromakey[tuningIndex]->bgColorSize.get(), chromakey[tuningIndex]->bgColorSize.get());
-            ofDrawBitmapString("bgColor", bgColorPos.x + camW/2, bgColorPos.y - 5);
+            ofDrawRectangle(bgColorPos.x, bgColorPos.y, chromakey[tuningIndex]->bgColorSize.get(), chromakey[tuningIndex]->bgColorSize.get());
+            ofDrawBitmapString("bgColor", bgColorPos.x, bgColorPos.y - 5);
+            ofPopMatrix();
             ofPopStyle();
         }
 
@@ -155,7 +159,7 @@ void OFThreadStream::draw() {
         ofPopMatrix();
         //-----------------------それぞれの描画------------------------
     }
-    ofSetWindowTitle("FPS: "+ofToString(ofGetFrameRate()));
+    ofSetWindowTitle("FPS: "+ofToString(ofGetFrameRate())+" / "+mBlendmodeManager.getBlendmodeName());
 }
 
 //--------------------------------------------------------------
@@ -163,7 +167,6 @@ void OFThreadStream::drawDebugMasks(int i) {
     ofSetColor(255);
     int previewW = camW/2, previewH = camH/2, labelOffset = 10;
 
-#ifdef MULTISCREEN
     chromakey[i]->drawBaseMask(camW + previewW, 0, previewW, previewH);
     ofDrawBitmapStringHighlight("Base mask", camW + previewW, labelOffset, ofColor(0, 125), ofColor::white);
 
@@ -177,7 +180,6 @@ void OFThreadStream::drawDebugMasks(int i) {
 
     chromakey[i]->drawFinalMask(camW, camH, previewW, previewH);
     ofDrawBitmapStringHighlight("Final mask", camW, camH + labelOffset, ofColor(0, 125), ofColor::white);
-#endif
 
     thread[i].img.draw(camW + previewW, camH, previewW, previewH);
     ofDrawBitmapStringHighlight("RGB image", camW + previewW, camH + labelOffset, ofColor(0, 125), ofColor::white);
